@@ -160,7 +160,7 @@ All fields are optional
 
 - `Side` – side dish
 - `Topping` – pizza ingredient
-- `PizzaPan` – type of pizza pan |
+- `PizzaPan` – type of pizza pan
 
 
 **Discount**
