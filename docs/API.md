@@ -63,7 +63,7 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 | **Field**       | **Type**        |                                          |
 | --------------- | --------------- | ---------------------------------------- |
 | **confirmedAt** | DateTime        | When the order was confirmed             |
-| **status**      | Status          | Enum: `Accepted | Rejected`              |
+| **status**      | Status          | Enum: `Accepted`, `Rejected`             |
 | deliveryTime    | DateTime | Null | Expected delivery time (when applicable) |
 | message         | String | Null   | Optional message for the customer.       |
 
