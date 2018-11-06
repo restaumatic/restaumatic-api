@@ -1,0 +1,251 @@
+{
+  "state": "WaitingForConfirmation",
+  "fulfillmentMethod": {
+    "deliveryCost": 5,
+    "tag": "Delivery",
+    "deliveryAddress": {
+      "country": "PL",
+      "floor": "1",
+      "street": "Piłsudskiego",
+      "coordinates": {
+        "lat": 50.060261,
+        "lon": 19.931425399999966
+      },
+      "city": "Kraków",
+      "apartmentNumber": "1",
+      "streetNumber": "4",
+      "postCode": ""
+    }
+  },
+  "items": [
+    {
+      "variant": {
+        "name": "0.5L",
+        "id": "e4323996-e459-5569-a6d1-271bbe22c7e4"
+      },
+      "extra": {},
+      "quantity": 1,
+      "subtotal": 5,
+      "name": "Cola",
+      "total": 5,
+      "productId": "bf48e2c1-b466-51d9-83ff-0bc7a0685adc",
+      "discounts": [],
+      "description": "0.5L"
+    },
+    {
+      "variant": {
+        "name": "Czosnkowy",
+        "id": "b7a7d6db-f642-5644-a099-fb73b7e229a7"
+      },
+      "extra": {},
+      "quantity": 1,
+      "subtotal": 0,
+      "name": "Sos do pizzy gratis",
+      "total": 0,
+      "productId": "f9507fb0-07a6-59cd-8738-8ae00f18ae57",
+      "discounts": [],
+      "description": "Czosnkowy"
+    },
+    {
+      "extra": {
+        "addedAddons": [
+          {
+            "addonType": "Side",
+            "name": "Frytki",
+            "productId": "0c764e23-143d-5606-b663-4805b87b41ee"
+          },
+          {
+            "addonType": "Side",
+            "name": "surówka z marchewki",
+            "productId": "73a7e02e-b4d9-5566-8c40-866afb511672"
+          }
+        ]
+      },
+      "quantity": 1,
+      "subtotal": 20,
+      "name": "Schabowy z dodatkami",
+      "total": 20,
+      "productId": "ec828c8f-7192-5b32-b861-1a9a6953830c",
+      "discounts": [],
+      "description": "Kuchnia Tradycyjna, Frytki, surówka z marchewki"
+    },
+    {
+      "variant": {
+        "name": "Mała",
+        "id": "60d9bfb6-6fa2-5382-bb90-6ebeb35a93fa"
+      },
+      "extra": {
+        "removedAddons": [
+          {
+            "addonType": "Topping",
+            "name": "Salami",
+            "productId": "dc63811e-c682-5768-bfc6-86f0921d21a7"
+          }
+        ],
+        "addedAddons": [
+          {
+            "addonType": "PizzaPan",
+            "name": "Cienkie",
+            "productId": "c8ccc32c-f390-5cd3-a550-2827d3887cb2"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Papryka",
+            "productId": "82ea0fb1-c1d4-5a6e-a413-672859e8c29a"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Pomidorowy",
+            "productId": "64362ff2-3f8e-51fe-8ec7-2dea478dd24e"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Czosnkowy",
+            "productId": "c2fe7759-043b-5426-af38-9c1611924e1e"
+          }
+        ],
+        "includedAddons": [
+          {
+            "addonType": "Topping",
+            "name": "Kukurydza",
+            "productId": "b8108180-09a1-5fca-b1ff-8fe25545fbbd"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Papryka",
+            "productId": "82ea0fb1-c1d4-5a6e-a413-672859e8c29a"
+          }
+        ]
+      },
+      "quantity": 1,
+      "subtotal": 24,
+      "name": "Pizza Szefa",
+      "total": 16.8,
+      "productId": "028474f6-18ac-5cb3-8d1e-d6890c30f7f4",
+      "discounts": [
+        {
+          "value": 7.2,
+          "name": "Rabat procentowy na pizze",
+          "description": "rabat"
+        }
+      ],
+      "description": "Cienkie, Mała, -Salami, +Papryka, +Pomidorowy, +Czosnkowy"
+    },
+    {
+      "variant": {
+        "name": "Mała",
+        "id": "d5415e11-8081-5221-8118-d276b6a9fc28"
+      },
+      "extra": {
+        "addedAddons": [
+          {
+            "addonType": "PizzaPan",
+            "name": "Cienkie",
+            "productId": "c8ccc32c-f390-5cd3-a550-2827d3887cb2"
+          }
+        ],
+        "includedAddons": [
+          {
+            "addonType": "Topping",
+            "name": "Czosnkowy",
+            "productId": "c2fe7759-043b-5426-af38-9c1611924e1e"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Kurczak",
+            "productId": "b91b6867-0f49-5482-a9f0-23347fb5e879"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Kukurydza",
+            "productId": "b8108180-09a1-5fca-b1ff-8fe25545fbbd"
+          }
+        ]
+      },
+      "quantity": 1,
+      "subtotal": 25,
+      "name": "Pizza Sola",
+      "total": 17.5,
+      "productId": "b9c6a819-58e2-51b6-9fe1-9ad760b74635",
+      "discounts": [
+        {
+          "value": 7.5,
+          "name": "Rabat procentowy na pizze",
+          "description": "rabat"
+        }
+      ],
+      "description": "Cienkie, Mała"
+    },
+    {
+      "variant": {
+        "name": "XL",
+        "id": "0670944d-4df9-59b0-9eda-644e0b7ce9d4"
+      },
+      "extra": {
+        "addedAddons": [
+          {
+            "addonType": "PizzaPan",
+            "name": "Cienkie",
+            "productId": "c8ccc32c-f390-5cd3-a550-2827d3887cb2"
+          }
+        ],
+        "includedAddons": [
+          {
+            "addonType": "Topping",
+            "name": "Salami",
+            "productId": "dc63811e-c682-5768-bfc6-86f0921d21a7"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Kukurydza",
+            "productId": "b8108180-09a1-5fca-b1ff-8fe25545fbbd"
+          },
+          {
+            "addonType": "Topping",
+            "name": "Papryka",
+            "productId": "82ea0fb1-c1d4-5a6e-a413-672859e8c29a"
+          }
+        ]
+      },
+      "quantity": 1,
+      "subtotal": 30,
+      "name": "Pizza Szefa",
+      "total": 21,
+      "productId": "028474f6-18ac-5cb3-8d1e-d6890c30f7f4",
+      "discounts": [
+        {
+          "value": 9,
+          "name": "Rabat procentowy na pizze",
+          "description": "rabat"
+        }
+      ],
+      "description": "Cienkie, XL"
+    }
+  ],
+  "userNote": "",
+  "customer": {
+    "email": "test@example.com",
+    "phone": "+48123123123",
+    "tag": "OnlineCustomer",
+    "name": "Ksawery Iksiński"
+  },
+  "currency": "PLN",
+  "orderedAt": "2018-11-05T08:54:32.330076Z",
+  "total": 44.1,
+  "id": "33fc3f35-0565-4f3e-816e-e0006ef75445",
+  "paymentMethod": "Card",
+  "timezone": "Europe/Warsaw",
+  "discounts": [
+    {
+      "value": 10,
+      "name": "Rabat kwotowy na zamówienie",
+      "description": "Rabat"
+    },
+    {
+      "value": 31.2,
+      "name": "Rabat procentowy na całe zamówienie",
+      "description": "opis"
+    }
+  ],
+  "callback": "http://www.manca.ro/api/v1/integrations/orders/33fc3f35-0565-4f3e-816e-e0006ef75445"
+}
