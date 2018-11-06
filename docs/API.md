@@ -44,7 +44,7 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 | **id**                   | UUID                | UUID of an order                                                                     |
 | **orderedAt**            | DateTime            | When the order was successfully placed & payment was complete                        |
 | **timezone**             | TZLabel             | Time zone of an restaurant, e.g. `Europe/Warsaw`                                     |
-| **state**                | OrderState          | Current state of an order, enum: `WaitingForConfirmation | Completed | Cancelled`    |
+| **state**                | OrderState          | Current state of an order, enum: `WaitingForConfirmation, Completed, Cancelled`    |
 | **paymentMethod**        | PaymentMethod       | Enum: `Cash, Online, Card`                                                         |
 | confirmation             | Confirmation or Null | Null when order state is `WaitingForConfirmation`                                    |
 | **customer**             | Customer            | Information about customer                                                           |
