@@ -9,8 +9,9 @@ Dokumentacja techniczna (w języku angielskim) znajduje się w dokumencie [docs/
 ### Jak się zintegrować?
 
 1. Poinformuj dostawcę swojego POS o chęci integracji.
-2. Dostawca POS implementuje integrację w oparciu o dokumentację techniczną.
-3. Po przeprowadzeniu testów uruchamiamy integrację dla restauracji.
+2. Dostawca POS kontaktuje się z nami celem udostępnienia środowiska testowego.
+3. Dostawca POS implementuje integrację w oparciu o dokumentację techniczną.
+4. Po przeprowadzeniu testów uruchamiamy integrację dla restauracji.
 
 W razie pytań i wątpiwości prosimy o kontakt.
 
