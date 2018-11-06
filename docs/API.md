@@ -45,16 +45,16 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 | **orderedAt**            | DateTime            | When the order was successfully placed & payment was complete                        |
 | **timezone**             | TZLabel             | Time zone of an restaurant, e.g. `Europe/Warsaw`                                     |
 | **state**                | OrderState          | Current state of an order, enum: `WaitingForConfirmation | Completed | Cancelled`    |
-| **paymentMethod**        | PaymentMethod       | Enum: `Cash | Online | Card`                                                         |
-| confirmation             | Confirmation | Null | Null when order state is `WaitingForConfirmation`                                    |
+| **paymentMethod**        | PaymentMethod       | Enum: `Cash, Online, Card`                                                         |
+| confirmation             | Confirmation or Null | Null when order state is `WaitingForConfirmation`                                    |
 | **customer**             | Customer            | Information about customer                                                           |
 | **fulfillmentMethod**    | FulfillmentMethod   |                                                                                      |
-| requestedFulfillmentTime | DateTime | Null     | Null for deliver ASAP orders, otherwise requested time for "deliver at XX:YY" orders |
+| requestedFulfillmentTime | DateTime or Null     | Null for deliver ASAP orders, otherwise requested time for "deliver at XX:YY" orders |
 | **total**                | Number              | Order total incl. discounts and delivery                                             |
 | **currency**             | String              | ISO 4217, e.g. `PLN`, `EUR`, etc.                                                    |
 | **items**                | Array of Item       |                                                                                      |
 | **discounts**            | Array of Discount   | Discounts that were applied to whole order (not to specific items)                   |
-| userNote                 | String | Null       | Note that user provided during checkout                                              |
+| userNote                 | String or Null       | Note that user provided during checkout                                              |
 | **callback**             | String              | Callback URL to order confirmation endpoint.                                         |
 
 
@@ -64,8 +64,8 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 | --------------- | --------------- | ---------------------------------------- |
 | **confirmedAt** | DateTime        | When the order was confirmed             |
 | **status**      | Status          | Enum: `Accepted`, `Rejected`             |
-| deliveryTime    | DateTime | Null | Expected delivery time (when applicable) |
-| message         | String | Null   | Optional message for the customer.       |
+| deliveryTime    | DateTime or Null | Expected delivery time (when applicable) |
+| message         | String or Null   | Optional message for the customer.       |
 
 
 **Customer**
@@ -100,9 +100,9 @@ There are two variants that should be distinguished by `tag` attribute (possible
 | ---------------- | ------------- | ----------------- |
 | **street**       | String        |                   |
 | **streetNumber** | String        |                   |
-| apartmentNumber  | String | Null |                   |
-| floor            | String | Null |                   |
-| postCode         | String | Null |                   |
+| apartmentNumber  | String or Null |                   |
+| floor            | String or Null |                   |
+| postCode         | String or Null |                   |
 | **city**         | String        |                   |
 | **country**      | String        | ISO3166-1 Alpha 2 |
 | **coordinates**  | Coordinates   |                   |
@@ -121,9 +121,9 @@ There are two variants that should be distinguished by `tag` attribute (possible
 | ------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **productId** | UUID              | UUID of a menu item                                                                                                                    |
 | **name**      | String            | Primary product name                                                                                                                   |
-| variant       | Variant | Null    | Variant (e.g. size) of an item                                                                                                         |
-| description   | String | Null     | Textual product description (size, sides, modification of ingredients)                                                                 |
-| extra         | ItemExtra | Null  | More fine-grained and structured info                                                                                                  |
+| variant       | Variant or Null    | Variant (e.g. size) of an item                                                                                                         |
+| description   | String or Null     | Textual product description (size, sides, modification of ingredients)                                                                 |
+| extra         | ItemExtra or Null  | More fine-grained and structured info                                                                                                  |
 | **quantity**  | Int               |                                                                                                                                        |
 | **subtotal**  | Number            | Unit price times quantity. No discounts applied. This price includes all extra customizations (e.g. added toppings, side dishes, etc.) |
 | **total**     | Number            | Subtotal minus discounts to this item.                                                                                                 |
@@ -144,10 +144,10 @@ All fields are optional
 
 | **Field**      | **Type**                  |                                                                                      |
 | -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
-| size           | String | Null             | Product size name (when applicable)                                                  |
-| includedAddons | Array of AddonInfo | Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
-| addedAddons    | Array of AddonInfo | Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
-| removedAddons  | Array of AddonInfo | Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
+| size           | String or Null             | Product size name (when applicable)                                                  |
+| includedAddons | Array of AddonInfo or Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
+| addedAddons    | Array of AddonInfo or Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
+| removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
 
 
 **AddonInfo**
@@ -168,7 +168,7 @@ All fields are optional
 | **Field**   | **Type**      |                                 |
 | ----------- | ------------- | ------------------------------- |
 | **name**    | String        | Primary discount/promotion name |
-| description | String | Null | Additional information          |
+| description | String or Null | Additional information          |
 | **value**   | Number        | Discount value                  |
 
 
@@ -223,10 +223,10 @@ In some cases one may require to map products from Restaumatic to products in th
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
 | **productId** | UUID                    | Product id in Restaumatic                                                                  |
 | **kind**      | ProductKind             | Indicates type of product
-Enum: Dish | Drink | Pizza | Freebie | Side | Topping | PizzaPan |
-| group         | String | Null           | Optional group of products (e.g. dish group), for informational purpose                    |
+Enum: Dish, Drink, Pizza, Freebie, Side, Topping, PizzaPan |
+| group         | String or Null           | Optional group of products (e.g. dish group), for informational purpose                    |
 | **name**      | String                  | Product name                                                                               |
-| variants      | Array of Variant | Null | List of possible variants (see Variant type from webhook). 
+| variants      | Array of Variant or Null | List of possible variants (see Variant type from webhook). 
 Applicable to some products.   |
 
 Testing: `https://www.manca.ro/api/v1/integrations/menu?apiKey=API_KEY`
