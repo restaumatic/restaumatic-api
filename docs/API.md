@@ -222,8 +222,7 @@ In some cases one may require to map products from Restaumatic to products in th
 | **Field**     | **Type**                |                                                                                            |
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
 | **productId** | UUID                    | Product id in Restaumatic                                                                  |
-| **kind**      | ProductKind             | Indicates type of product
-Enum: Dish, Drink, Pizza, Freebie, Side, Topping, PizzaPan |
+| **kind**      | ProductKind             | Indicates type of product, Enum: Dish, Drink, Pizza, Freebie, Side, Topping, PizzaPan |
 | group         | String or Null           | Optional group of products (e.g. dish group), for informational purpose                    |
 | **name**      | String                  | Product name                                                                               |
 | variants      | Array of Variant or Null | List of possible variants (see Variant type from webhook). 
