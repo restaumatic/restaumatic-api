@@ -105,7 +105,7 @@ There are two variants that should be distinguished by `tag` attribute (possible
 | postCode         | String or Null |                   |
 | **city**         | String        |                   |
 | **country**      | String        | ISO3166-1 Alpha 2 |
-| **coordinates**  | Coordinates   |                   |
+| coordinates      | Coordinates or Null |                   |
 
 **Coordinates**
 
@@ -180,6 +180,8 @@ The confirmation data shall be sent to callback URL provided in webhook data as 
 Testing: `https://www.manca.ro/api/v1/integrations/orders/ORDER_ID?apiKey=API_KEY`
 
 Production: `https://www.skubacz.pl/api/v1/integrations/orders/ORDER_ID?apiKey=API_KEY`
+
+Order id has to be provided both in URL as well as in request body.
 
 **Accept the order**
 
