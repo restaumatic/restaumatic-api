@@ -6,7 +6,7 @@ API systemu Restaumatic pozwala na integrację go z innymi systemami informatycz
 
 Dokumentacja techniczna (w języku angielskim) znajduje się w dokumencie [docs/API.md](docs/API.md).
 
-### Jak się zintegrować?
+## Jak się zintegrować?
 
 1. Poinformuj dostawcę swojego POS o chęci integracji.
 2. Dostawca POS kontaktuje się z nami celem udostępnienia środowiska testowego.
@@ -14,4 +14,15 @@ Dokumentacja techniczna (w języku angielskim) znajduje się w dokumencie [docs/
 4. Po przeprowadzeniu testów uruchamiamy integrację dla restauracji.
 
 W razie pytań i wątpiwości prosimy o kontakt.
+
+## Materiały graficzne
+
+### Logo
+
+![Logo](logo/logo.svg)
+
+### Sygnet
+
+![Icon](logo/icon.svg)
+
 
