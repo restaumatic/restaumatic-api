@@ -220,6 +220,164 @@
         }
       ],
       "description": "Cienkie, XL"
+    },
+    {
+      "variant": {
+        "name": "Mała",
+        "id": [
+          "2b2c5af8-9287-5502-b877-1c0a2fc93b4e",
+          "a3c7be3f-4792-5187-966f-ece306896450"
+        ]
+      },
+      "extra": {
+        "parts": [
+          {
+            "removedAddons": [
+              {
+                "addonType": "Topping",
+                "name": "Salami",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 10
+                },
+                "productId": "64659812-975e-5b85-a033-cf7e579ee8c3"
+              }
+            ],
+            "addedAddons": [
+              {
+                "addonType": "Topping",
+                "name": "Czosnkowy ostry",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 5
+                },
+                "productId": "9284f426-6afa-5ecd-89a2-c46108a51f7a"
+              },
+              {
+                "addonType": "Topping",
+                "name": "Kebab",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 6
+                },
+                "productId": "a6d8230f-e126-5f92-8011-ca84f1cdb777"
+              }
+            ],
+            "includedAddons": [
+              {
+                "addonType": "Topping",
+                "name": "Feta",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 1
+                },
+                "productId": "ca75335a-a28e-510e-bca2-0a9acc00240f"
+              },
+              {
+                "addonType": "Topping",
+                "name": "Curry",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 4
+                },
+                "productId": "a36281ef-ac24-58f3-86fb-4aaa723939d8"
+              }
+            ]
+          },
+          {
+            "removedAddons": [
+              {
+                "addonType": "Topping",
+                "name": "Curry",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 4
+                },
+                "productId": "a36281ef-ac24-58f3-86fb-4aaa723939d8"
+              },
+              {
+                "addonType": "Topping",
+                "name": "Czosnkowy ostry",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 5
+                },
+                "productId": "9284f426-6afa-5ecd-89a2-c46108a51f7a"
+              }
+            ],
+            "addedAddons": [
+              {
+                "addonType": "Topping",
+                "name": "Zioła",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 8
+                },
+                "productId": "0cc8a269-c584-59cb-9530-25bc2e738bbc"
+              },
+              {
+                "addonType": "Topping",
+                "name": "Pieczarki",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 20
+                },
+                "productId": "dea5e3a5-bfa0-5754-8116-eb8572adeefa"
+              },
+              {
+                "addonType": "Topping",
+                "name": "Pieczarki",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 20
+                },
+                "productId": "dea5e3a5-bfa0-5754-8116-eb8572adeefa"
+              }
+            ],
+            "includedAddons": [
+              {
+                "addonType": "Topping",
+                "name": "Kebab",
+                "transparentId": {
+                  "kind": "Topping",
+                  "id": 6
+                },
+                "productId": "a6d8230f-e126-5f92-8011-ca84f1cdb777"
+              }
+            ]
+          }
+        ],
+        "addedAddons": [
+          {
+            "addonType": "PizzaPan",
+            "name": "Cienkie",
+            "transparentId": {
+              "kind": "PizzaPan",
+              "id": 0
+            },
+            "productId": "c8ccc32c-f390-5cd3-a550-2827d3887cb2"
+          }
+        ]
+      },
+      "quantity": 1,
+      "subtotal": 11.5,
+      "name": "Pizza pół na pół",
+      "total": 11.5,
+      "transparentId": {
+        "size": 0,
+        "kind": "Pizza",
+        "ids": [
+          4,
+          2
+        ],
+        "panType": 0
+      },
+      "productId": [
+        "084e3bd1-ef78-53b5-b93d-3d50a4c97010",
+        "85d3324e-e966-5578-8f47-393fd6a3d515"
+      ],
+      "discounts": [],
+      "description": "Mała, dupa: Hawajska (+Czosnkowy ostry, +Kebab, -Salami) / Capriciosa (+Zioła, +Pieczarki, +Pieczarki, -Curry, -Czosnkowy ostry)"
     }
   ],
   "userNote": "",
