@@ -9,7 +9,7 @@ Please contact us to get access to development infrastracture (test restaurant w
 
 Integration has to be configured and enabled for given restaurant by Restaumatic support. In the future, we may add this option to restaurant’s panel to allow self-service.
 
-API may be used in two modes: push, where configured webhook is called on order status change, or poll, when client periodically checks for incoming order. For push mode we need webhook URL in order to enable integration. Upon enabling integration one should receive an API Key that is required to perform API calls as well as authenticate webhook calls. This should be provided as a query parameter `apiKey` when calling Restaumatic endpoints as indicated in the documentation. 
+API may be used in two modes: push, where configured webhook is called on order status change, or poll, when client periodically checks for incoming order. For push mode we need webhook URL in order to enable integration. Upon enabling integration one should receive an API Key that is required to perform API calls as well as authenticate webhook calls. This should be provided as a query parameter `apiKey` when calling Restaumatic endpoints as indicated in the documentation.
 
 # Receiving orders
 
@@ -21,7 +21,7 @@ The webhook will be triggered when:
 - an order was accepted,
 - an order was cancelled.
 
-Order may be accepted or cancelled with other channel and the webhook client should take this into account. 
+Order may be accepted or cancelled with other channel and the webhook client should take this into account.
 
 **Note:** Restaumatic automatically cancels orders that are not confirmed within a specified period (approximately 15 minutes, is subject to change). In such case, the customer is notified about this and is refunded (if paid online). Likely, an external system should reflect this state change.
 
@@ -36,6 +36,19 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 - We may add more fields in the future. We will do our best to maintain backward compatibility.
 - `productId` is unique for each specific variant (size) of a menu item.
 - In case of online payment we call webhooks after payment was successfully processed.
+
+**Half and half pizzas**
+
+Half and half pizzas are encoded as ordinary items. However, they use fixed UUID for `productId` and `variant.id`. The latter may be used to obtain information on pizza size. The information about parts, i.e. base pizza name, product and variant ids and topping adjustments are encoded in `extra.parts` attribute of an item in similar fashion to regular pizzas. Half and half pizzas may be also disabled by the restaurant in the admin panel.
+
+Split pizza product UUID: `bb696623-ac72-5850-81bf-759b54e23b27`
+
+Variant id by Restaumatic size in Restaumatic system:
+1. `3909adee-2fd3-5af8-bd5f-03e33ed48b7d`
+1. `7bbf5ddc-a0b4-5d8e-9733-83640c3a394f`
+1. `e9d0b342-c380-52dc-ba53-8ada2c20f1fb`
+1. `517ccb0b-c4a9-5bcc-8e06-89861bb54ff7`
+1. `84383e8f-d602-55a6-842a-6feecd5b287d`
 
 **Order (webhook payload)**
 
@@ -58,7 +71,7 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 | **callback**             | String              | Callback URL to order confirmation endpoint.                                         |
 
 
-**Confirmation** 
+**Confirmation**
 
 | **Field**       | **Type**        |                                          |
 | --------------- | --------------- | ---------------------------------------- |
@@ -70,7 +83,7 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 
 **Customer**
 
-There may be more variants in the future, API client should check `tag` attribute value. 
+There may be more variants in the future, API client should check `tag` attribute value.
 
 | **Field** | **Type**     |                           |
 | --------- | ------------ | ------------------------- |
@@ -81,6 +94,7 @@ There may be more variants in the future, API client should check `tag` attribut
 
 
 **Fulfillment method**
+
 There are two variants that should be distinguished by `tag` attribute (possible values: `Takeaway`, `Delivery`).
 
 | **Field** | **Type**              |                     |
@@ -119,7 +133,7 @@ There are two variants that should be distinguished by `tag` attribute (possible
 
 | **Field**     | **Type**          |                                                                                                                                        |
 | ------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **productId** | UUID              | UUID of a menu item                                                                                                                    |
+| **productId** | UUID              | UUID of a menu item                                                                         |
 | **name**      | String            | Primary product name                                                                                                                   |
 | variant       | Variant or Null    | Variant (e.g. size) of an item                                                                                                         |
 | description   | String or Null     | Textual product description (size, sides, modification of ingredients)                                                                 |
@@ -145,6 +159,18 @@ All fields are optional
 | **Field**      | **Type**                  |                                                                                      |
 | -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
 | size           | String or Null             | Product size name (when applicable)                                                  |
+| includedAddons | Array of AddonInfo or Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
+| addedAddons    | Array of AddonInfo or Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
+| removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
+| parts          | Array of PartExtra or Null | Parts of an item, applicable to half-and-half pizzas |
+
+**PartExtra (only half and half pizzas)**
+
+| **Field**      | **Type**                  |                                                                                      |
+| -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
+| **productId** | UUID              | UUID of a menu item                                                                         |
+| **name**      | String            | Primary product name                                                                         |
+| variant       | Variant or Null    | Variant (e.g. size) of an item                                                                  |
 | includedAddons | Array of AddonInfo or Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
 | addedAddons    | Array of AddonInfo or Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
 | removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
@@ -186,8 +212,8 @@ Order id has to be provided both in URL as well as in request body.
 **Accept the order**
 
     {
-      "orderId": "0241c2a3-ee54-4c43-bad0-89a2e446e2b4", 
-      "status": "Accepted", 
+      "orderId": "0241c2a3-ee54-4c43-bad0-89a2e446e2b4",
+      "status": "Accepted",
       "deliveryTime": "2018-10-03T23:16:04.022526Z"
     }
 
@@ -195,7 +221,7 @@ Order id has to be provided both in URL as well as in request body.
 
     {
       "orderId": "0241c2a3-ee54-4c43-bad0-89a2e446e2b4",
-      "status": "Rejected", 
+      "status": "Rejected",
       "comment": "We've run out of pizza dough."
     }
 
@@ -203,7 +229,7 @@ Order id has to be provided both in URL as well as in request body.
 # Debugging webhooks
 
 We provide special endpoint for webhook debugging. It will present some diagnostic information about recent webhook calls. Note, as this is debugging API we may change and improve this from time to time without notice.
- 
+
 Testing: `https://www.manca.ro/api/v1/integrations/log?apiKey=API_KEY`
 
 Production: `https://www.skubacz.pl/api/v1/integrations/log?apiKey=API_KEY`
@@ -219,7 +245,7 @@ Production: `https://www.skubacz.pl/api/v1/integrations/orders?apiKey=API_KEY`
 
 # Getting product list
 
-In some cases one may require to map products from Restaumatic to products in the external system. To make this possible we provide an extra endpoint to retrieve full list of products including available variants. Then the mapping procedure has to be implemented in the external system. 
+In some cases one may require to map products from Restaumatic to products in the external system. To make this possible we provide an extra endpoint to retrieve full list of products including available variants. Then the mapping procedure has to be implemented in the external system.
 
 | **Field**     | **Type**                |                                                                                            |
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
@@ -236,3 +262,11 @@ Production: `https://www.skubacz.pl/api/v1/integrations/menu?apiKey=API_KEY`
 
 # Example webhook payload
 See [example.json](example.json).
+
+# Changelog
+
+## September 2019
+
+#### Support for half-and-half pizzas
+
+Information about pizza parts is now encoded in new `parts` attribute of ItemExtra.
