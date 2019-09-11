@@ -42,6 +42,7 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 Half and half pizzas are encoded as ordinary items. However, they use fixed UUID for `productId` and `variant.id`. The latter may be used to obtain information on pizza size. The information about parts, i.e. base pizza name, product and variant ids and topping adjustments are encoded in `extra.parts` attribute of an item in similar fashion to regular pizzas. Half and half pizzas may be also disabled by the restaurant in the admin panel.
 
 Split pizza product UUID: `bb696623-ac72-5850-81bf-759b54e23b27`
+
 Variant id by Restaumatic size in Restaumatic system:
 1. `3909adee-2fd3-5af8-bd5f-03e33ed48b7d`
 1. `7bbf5ddc-a0b4-5d8e-9733-83640c3a394f`
