@@ -37,6 +37,18 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 - `productId` is unique for each specific variant (size) of a menu item.
 - In case of online payment we call webhooks after payment was successfully processed.
 
+**Half and half pizzas**
+
+Half and half pizzas are encoded as ordinary items. However, they use fixed UUID for `productId` and `variant.id`. The latter may be used to obtain information on pizza size. The information about parts, i.e. base pizza name, product and variant ids and topping adjustments are encoded in `extra.parts` attribute of an item in similar fashion to regular pizzas. Half and half pizzas may be also disabled by the restaurant in the admin panel.
+
+Split pizza product UUID: `bb696623-ac72-5850-81bf-759b54e23b27`
+Variant id by Restaumatic size in Restaumatic system:
+1. `3909adee-2fd3-5af8-bd5f-03e33ed48b7d`
+1. `7bbf5ddc-a0b4-5d8e-9733-83640c3a394f`
+1. `e9d0b342-c380-52dc-ba53-8ada2c20f1fb`
+1. `517ccb0b-c4a9-5bcc-8e06-89861bb54ff7`
+1. `84383e8f-d602-55a6-842a-6feecd5b287d`
+
 **Order (webhook payload)**
 
 | **Field**                | **Type**            |                                                                                      |
@@ -120,7 +132,7 @@ There are two variants that should be distinguished by `tag` attribute (possible
 
 | **Field**     | **Type**          |                                                                                                                                        |
 | ------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| **productId** | UUID | Array of UUID | UUID of a menu item, multiple UUIDs for half-and-half pizzas                                                                        |
+| **productId** | UUID              | UUID of a menu item                                                                         |
 | **name**      | String            | Primary product name                                                                                                                   |
 | variant       | Variant or Null    | Variant (e.g. size) of an item                                                                                                         |
 | description   | String or Null     | Textual product description (size, sides, modification of ingredients)                                                                 |
@@ -135,7 +147,7 @@ There are two variants that should be distinguished by `tag` attribute (possible
 
 | **Field** | **Type** |                           |
 | --------- | -------- | ------------------------- |
-| **id**    | UUID     | UUID of a variant, multiple UUIDs for half-and-half pizzas         |
+| **id**    | UUID     | UUID of a variant         |
 | **name**  | String   | Display name of a variant |
 
 
@@ -151,11 +163,13 @@ All fields are optional
 | removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
 | parts          | Array of PartExtra or Null | Parts of an item, applicable to half-and-half pizzas |
 
-**PartExtra**
-All fields are optional
+**PartExtra (only half and half pizzas)**
 
 | **Field**      | **Type**                  |                                                                                      |
 | -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
+| **productId** | UUID              | UUID of a menu item                                                                         |
+| **name**      | String            | Primary product name                                                                         |
+| variant       | Variant or Null    | Variant (e.g. size) of an item                                                                  |
 | includedAddons | Array of AddonInfo or Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
 | addedAddons    | Array of AddonInfo or Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
 | removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
@@ -253,4 +267,5 @@ See [example.json](example.json).
 ## September 2019
 
 #### Support for half-and-half pizzas
-For half-and-half pizzas UUID of item and variant ids is replaced by two element array. Topping information is encoded in new `parts` attribute of ItemExtra.
+
+Information about pizza parts is now encoded in new `parts` attribute of ItemExtra.
