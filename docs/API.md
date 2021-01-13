@@ -69,7 +69,7 @@ Variant id by Restaumatic size in Restaumatic system:
 | **discounts**            | Array of Discount   | Discounts that were applied to whole order (not to specific items)                   |
 | userNote                 | String or Null       | Note that user provided during checkout                                              |
 | **callback**             | String              | Callback URL to order confirmation endpoint.                                         |
-
+| vatId                    | String or Null      | Vat ID if user has requested invoice                                                 |
 
 **Confirmation**
 
@@ -264,6 +264,10 @@ Production: `https://www.skubacz.pl/api/v1/integrations/menu?apiKey=API_KEY`
 See [example.json](example.json).
 
 # Changelog
+
+## January 2021
+
+Added `vatId` field to the order.
 
 ## September 2019
 
