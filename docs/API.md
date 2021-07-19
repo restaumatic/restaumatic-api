@@ -21,10 +21,9 @@ The webhook will be triggered when:
 - an order was accepted,
 - an order was cancelled.
 
-Order may be accepted or cancelled with other channel and the webhook client should take this into account.
+Order may be accepted or cancelled with other channel and the webhook client should take this into account. Also, some orders (e.g. entered manually by restaurant staff) trigger only accepted event (they are already in `Completed` state), so integration should not rely on receiving orders in `WaitingForConfirmation` state in order to get all orders.
 
 **Note:** Restaumatic automatically cancels orders that are not confirmed within a specified period (approximately 15 minutes, is subject to change). In such case, the customer is notified about this and is refunded (if paid online). Likely, an external system should reflect this state change.
-
 
 ## Data format
 
