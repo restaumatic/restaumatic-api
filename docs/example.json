@@ -1,4 +1,5 @@
 {
+  "origin": "Online",
   "state": "WaitingForConfirmation",
   "fulfillmentMethod": {
     "deliveryCost": 5,
