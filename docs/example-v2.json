@@ -1,0 +1,278 @@
+{
+  "data": {
+    "state": "WaitingForConfirmation",
+    "fulfillmentMethod": {
+      "deliveryCost": 0,
+      "tag": "Delivery",
+      "deliveryZoneName": "Strefa 1",
+      "deliveryAddress": {
+        "country": "PL",
+        "floor": "3",
+        "street": "Wolności",
+        "coordinates": {
+          "lat": 50.298412,
+          "lon": 18.79714
+        },
+        "city": "Zabrze",
+        "apartmentNumber": "432",
+        "streetNumber": "345",
+        "postCode": ""
+      }
+    },
+    "items": [
+      {
+        "extra": {
+          "parts": [
+            {
+              "variant": {
+                "name": "Duża 30",
+                "id": "7272112d-e0c2-59cb-9506-f388560d8515"
+              },
+              "removedAddons": [
+                {
+                  "addonType": "Modifier",
+                  "name": "Biała mozzarella",
+                  "productId": "c7d9a437-081e-5810-9ce2-0b0005743b0a"
+                }
+              ],
+              "name": "Toscana",
+              "addedAddons": [
+                {
+                  "addonType": "Modifier",
+                  "name": "Tuńczyk",
+                  "productId": "a7d488f3-fb9c-5f3f-a3fd-0fff9aa33542"
+                },
+                {
+                  "addonType": "Modifier",
+                  "name": "Ketchup",
+                  "productId": "7c71f1f6-cff5-5e5e-8d07-5cb1455e21ed"
+                },
+                {
+                  "addonType": "Modifier",
+                  "name": "Feta",
+                  "productId": "05cbeb61-27e8-5706-8a59-55ac21059860"
+                },
+                {
+                  "addonType": "Modifier",
+                  "name": "Lazur",
+                  "productId": "b25e4b24-85ab-5310-a814-2b1d8c95ebdc"
+                }
+              ],
+              "includedAddons": [
+                {
+                  "addonType": "Modifier",
+                  "name": "Tuńczyk",
+                  "productId": "a7d488f3-fb9c-5f3f-a3fd-0fff9aa33542"
+                },
+                {
+                  "addonType": "Modifier",
+                  "name": "Ketchup",
+                  "productId": "7c71f1f6-cff5-5e5e-8d07-5cb1455e21ed"
+                }
+              ],
+              "productId": "c8ac1335-e185-5fb0-b50e-6d2380e1a190"
+            },
+            {
+              "variant": {
+                "name": "Duża 30",
+                "id": "7272112d-e0c2-59cb-9506-f388560d8515"
+              },
+              "removedAddons": [
+                {
+                  "addonType": "Modifier",
+                  "name": "Kukurydza",
+                  "productId": "1ef797d7-e074-57e2-ab02-2d670fd8c878"
+                }
+              ],
+              "name": "Wegetarianska",
+              "addedAddons": [
+                {
+                  "addonType": "Modifier",
+                  "name": "Oliwki czarne",
+                  "productId": "bc1ee9fc-23f2-522c-b11b-24a35ec309e4"
+                },
+                {
+                  "addonType": "Modifier",
+                  "name": "Oliwki czarne",
+                  "productId": "bc1ee9fc-23f2-522c-b11b-24a35ec309e4"
+                }
+              ],
+              "includedAddons": [
+                {
+                  "addonType": "Modifier",
+                  "name": "Gyros",
+                  "productId": "a938c8e7-7447-5bec-b216-d91a746d4297"
+                },
+                {
+                  "addonType": "Modifier",
+                  "name": "Gouda",
+                  "productId": "22904767-c692-5298-bf0e-ba9ad998f94a"
+                }
+              ],
+              "productId": "7411c62e-0af0-5432-ae4f-c45b6a9aaa24"
+            }
+          ],
+          "addedAddons": [
+            {
+              "addonType": "Modifier",
+              "name": "Dopłata do ciasta",
+              "productId": "f5d1eac5-42e5-5eee-8618-2622c0cf987e"
+            }
+          ]
+        },
+        "quantity": 1,
+        "subtotal": 21,
+        "name": "Toscana / Wegetarianska",
+        "total": 21,
+        "productId": "beb19f5e-6c14-4a75-b1fd-356ebf0a5bec",
+        "discounts": [],
+        "description": "Duża 30, Cienkie, +Dopłata do ciasta: +Tuńczyk, +Ketchup, +Feta, +Lazur, -Biała mozzarella / +2 x Oliwki czarne, -Kukurydza"
+      },
+      {
+        "variant": {
+          "name": "Średnia 20",
+          "id": "c401cd4f-24a2-5e3f-a230-252765339e72"
+        },
+        "extra": {
+          "addedAddons": [
+            {
+              "addonType": "Modifier",
+              "name": "Dopłata do ciasta",
+              "productId": "f5d1eac5-42e5-5eee-8618-2622c0cf987e"
+            }
+          ],
+          "includedAddons": [
+            {
+              "addonType": "Modifier",
+              "name": "Sos żurawinowy",
+              "productId": "5a2a225c-2767-5512-8467-948bee6149bf"
+            },
+            {
+              "addonType": "Modifier",
+              "name": "Przyprawy",
+              "productId": "c3d46554-f841-51c9-a22b-8af46a13bde6"
+            },
+            {
+              "addonType": "Modifier",
+              "name": "Czosnek mielony",
+              "productId": "85f36e77-52fa-57c7-b3c5-697034df3184"
+            }
+          ]
+        },
+        "quantity": 1,
+        "subtotal": 12,
+        "name": "Capriciosa",
+        "total": 12,
+        "productId": "aaf571d8-d232-5e3c-897e-a02f3715b7b8",
+        "discounts": [],
+        "description": "Średnia 20, Cienkie, +Dopłata do ciasta: Capriciosa"
+      },
+      {
+        "variant": {
+          "name": "Domyślny",
+          "id": "a08ac987-32a0-525c-a510-4426cf20e9c8"
+        },
+        "extra": {},
+        "quantity": 1,
+        "subtotal": 10,
+        "name": "Placki ziemniaczane",
+        "total": 10,
+        "productId": "faef0a4b-8e8c-5387-8fda-f038a25fbf8c",
+        "discounts": [],
+        "description": ""
+      },
+      {
+        "variant": {
+          "name": "Domyślny",
+          "id": "a08ac987-32a0-525c-a510-4426cf20e9c8"
+        },
+        "extra": {},
+        "quantity": 1,
+        "subtotal": 13,
+        "name": "Chickenburger",
+        "total": 13,
+        "productId": "024f72b0-6641-5766-af9c-f407b1b6f2dc",
+        "discounts": [],
+        "description": ""
+      },
+      {
+        "variant": {
+          "name": "1L",
+          "id": "cb5e383e-1083-5e9e-bd48-696bd34aa7aa"
+        },
+        "extra": {},
+        "quantity": 1,
+        "subtotal": 2,
+        "name": "7up",
+        "total": 2,
+        "productId": "d7325c03-83a1-5f13-9d2c-6b4d1bb1e770",
+        "discounts": [],
+        "description": "1L: 7up"
+      },
+      {
+        "variant": {
+          "name": "Domyślny",
+          "id": "a08ac987-32a0-525c-a510-4426cf20e9c8"
+        },
+        "extra": {
+          "addedAddons": [
+            {
+              "addonType": "Modifier",
+              "name": "Sos miodowy",
+              "productId": "967424c7-c02a-5a10-a5aa-888d7fe22b6d"
+            },
+            {
+              "addonType": "Modifier",
+              "name": "Guacamole",
+              "productId": "412299c2-da95-5316-afbf-e345032cc6ff"
+            },
+            {
+              "addonType": "Modifier",
+              "name": "Ryż",
+              "productId": "99302c9b-8229-57c3-b709-68c54b25c28f"
+            }
+          ]
+        },
+        "quantity": 1,
+        "subtotal": 20,
+        "name": "Cheesburger",
+        "total": 20,
+        "productId": "8b575d85-bb2e-54dc-9e94-fc0fe40030cd",
+        "discounts": [],
+        "description": "+Sos miodowy, +Guacamole, +Ryż: Cheesburger"
+      },
+      {
+        "variant": {
+          "name": "XL",
+          "id": "cc49374f-cb41-5bcc-a6e0-b30477dcff36"
+        },
+        "extra": {},
+        "quantity": 1,
+        "subtotal": 8,
+        "name": "Żywiec",
+        "total": 8,
+        "productId": "eb83f376-86d8-5686-80c5-17ac5d54e362",
+        "discounts": [],
+        "description": "0.5L: Żywiec"
+      }
+    ],
+    "vatId": "NIPNIPNIP",
+    "userNote": "Pizza ma być ciepła!",
+    "customer": {
+      "email": "jan@example.com",
+      "phone": "+48123123123",
+      "tag": "OnlineCustomer",
+      "originalPhone": null,
+      "name": "Jan Kowalski"
+    },
+    "displayId": "73457660",
+    "currency": "PLN",
+    "orderedAt": "2021-01-22T08:09:35.135463Z",
+    "total": 86,
+    "id": "2c9ffbb9-d23e-41c5-bad2-8ad5732c2f7b",
+    "paymentMethod": "Cash",
+    "timezone": "Europe/Warsaw",
+    "discounts": [],
+    "callback": "http://www.example.com/api/v1/integrations/orders/2c9ffbb9-d23e-41c5-bad2-8ad5732c2f7b"
+  }
+}

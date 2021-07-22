@@ -49,6 +49,16 @@ Variant id by Restaumatic size in Restaumatic system:
 1. `517ccb0b-c4a9-5bcc-8e06-89861bb54ff7`
 1. `84383e8f-d602-55a6-842a-6feecd5b287d`
 
+**Split items for generic products**
+
+Split items are encoded as ordinary items. However, they use fixed UUID for `productId` and have no `variant.id`. The information about parts (variant, addons) are encoded in `extra.parts` attribute of an item in similar fashion to regular products. Ability to split selected may be enabled by the restaurant in the admin panel.
+
+Split product (new menu) UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
+
+**Combos**
+
+Combos are represented as separate products.
+
 **Order (webhook payload)**
 
 | **Field**                | **Type**            |                                                                                      |
@@ -135,7 +145,7 @@ There are two variants that should be distinguished by `tag` attribute (possible
 | **productId** | UUID              | UUID of a menu item                                                                         |
 | **name**      | String            | Primary product name                                                                                                                   |
 | variant       | Variant or Null    | Variant (e.g. size) of an item                                                                                                         |
-| description   | String or Null     | Textual product description (size, sides, modification of ingredients)                                                                 |
+| description   | String or Null     | Textual product description (size, sides, modification of ingredients), formatting is subject to change without notice                                                                 |
 | extra         | ItemExtra or Null  | More fine-grained and structured info                                                                                                  |
 | **quantity**  | Int               |                                                                                                                                        |
 | **subtotal**  | Number            | Unit price times quantity. No discounts applied. This price includes all extra customizations (e.g. added toppings, side dishes, etc.) |
@@ -183,9 +193,10 @@ All fields are optional
 | **name**      | String    | Addon name                                                                                                                             |
 | **addonType** | AddonType | Addon type. Addons may have different semantics:
 
-- `Side` – side dish
-- `Topping` – pizza ingredient
-- `PizzaPan` – type of pizza pan
+- `Side` – side dish (deprecated)
+- `Topping` – pizza ingredient (deprecated)
+- `PizzaPan` – type of pizza pan (deprecated)
+- `Modifier` – modifier item
 
 
 **Discount**
@@ -236,7 +247,7 @@ Production: `https://www.skubacz.pl/api/v1/integrations/log?apiKey=API_KEY`
 
 # Retrieving recent orders (polling)
 
-If using webhooks is not suitable for your use case, we make polling endpoint available. It will return recent orders, including confirmed or rejected ones. Remember, orders may be automatically cancelled by Restaumatic.
+If using webhooks is not suitable for your use case, we make polling endpoint available. It will return recent orders, including confirmed or rejected ones. Remember, orders may be cancelled either automatically by Restaumatic or by the user using other methods.
 
 Testing: `https://www.manca.ro/api/v1/integrations/orders?apiKey=API_KEY`
 
@@ -249,9 +260,9 @@ In some cases one may require to map products from Restaumatic to products in th
 | **Field**     | **Type**                |                                                                                            |
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
 | **productId** | UUID                    | Product id in Restaumatic                                                                  |
-| **kind**      | ProductKind             | Indicates type of product, Enum: Dish, Drink, Pizza, Freebie, Side, Topping, PizzaPan |
-| group         | String or Null           | Optional group of products (e.g. dish group), for informational purpose                    |
-| **name**      | String                  | Product name                                                                               |
+| **kind**      | ProductKind             | Indicates type of product, Enum: Product, Modifier, Dish, Drink, Pizza, Freebie, Side, Topping, PizzaPan |
+| group         | String or Null           | Optional group of products (e.g. dish group, product category, modifier name), for informational purpose |
+| **name**      | String                   | Product name                                                                               |
 | variants      | Array of Variant or Null | List of possible variants (see Variant type from webhook). Applicable to some products.   |
 
 Testing: `https://www.manca.ro/api/v1/integrations/menu?apiKey=API_KEY`
@@ -264,9 +275,13 @@ See [example.json](example.json).
 
 # Changelog
 
+## July 2021
+
+* Support for generic product representation.
+
 ## January 2021
 
-Added `vatId` field to the order.
+* Added `vatId` field to the order.
 
 ## September 2019
 
