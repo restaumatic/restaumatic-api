@@ -279,6 +279,7 @@ See [example.json](example.json).
 ## July 2021
 
 * Support for generic product representation.
+* Add `origin` field to the order.
 
 ## January 2021
 
