@@ -276,10 +276,13 @@ See [example.json](example.json).
 
 # Changelog
 
+## July 2021
+
+* Support for generic product representation.
+
 ## January 2021
 
 * Added `vatId` field to the order.
-* Support for generic product representation.
 
 ## September 2019
 
