@@ -105,11 +105,12 @@ There may be more variants in the future, API client should check `tag` attribut
 
 **Fulfillment method**
 
-There are two variants that should be distinguished by `tag` attribute (possible values: `Takeaway`, `Delivery`).
+There are four variants that should be distinguished by `tag` attribute (possible values: `Takeaway`, `Delivery`, `DineIn`, `CourierPickup`).
 
-| **Field** | **Type**              |                     |
-| --------- | --------------------- | ------------------- |
-| **tag**   | FulfillmentMethodType | Constant `Takeaway` |
+| **Field**      | **Type**              |                     |
+| -------------- | --------------------- | ------------------- |
+| **tag**        | FulfillmentMethodType | Constant `Takeaway` |
+| **pickupCode** | String or Null        |                     |
 
 | **Field**           | **Type**              |                     |
 | ------------------- | --------------------- | ------------------- |
@@ -117,6 +118,15 @@ There are two variants that should be distinguished by `tag` attribute (possible
 | **deliveryCost**    | Number                |                     |
 | **deliveryAddress** | DeliveryAddress       |                     |
 
+| **Field**           | **Type**              |                   |
+| ------------------- | --------------------- | ----------------- |
+| **tag**             | FulfillmentMethodType | Constant `DineIn` |
+
+| **Field**       | **Type**              |                          |
+| --------------- | --------------------- | ------------------------ |
+| **tag**         | FulfillmentMethodType | Constant `CourierPickup` |
+| **pickupCode**  | String or Null        |                          |
+| **deliveryFee** | Number or Null        |                          |
 
 **Delivery address**
 
