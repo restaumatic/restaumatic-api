@@ -109,7 +109,7 @@ There are four variants that should be distinguished by `tag` attribute (possibl
 | **Field**      | **Type**              |                     |
 | -------------- | --------------------- | ------------------- |
 | **tag**        | FulfillmentMethodType | Constant `Takeaway` |
-| **pickupCode** | String                |                     |
+| **pickupCode** | String or Null        |                     |
 
 | **Field**           | **Type**              |                     |
 | ------------------- | --------------------- | ------------------- |
@@ -124,8 +124,8 @@ There are four variants that should be distinguished by `tag` attribute (possibl
 | **Field**       | **Type**              |                          |
 | --------------- | --------------------- | ------------------------ |
 | **tag**         | FulfillmentMethodType | Constant `CourierPickup` |
-| **pickupCode**  | String                |                          |
-| **deliveryFee** | Number                |                          |
+| **pickupCode**  | String or Null        |                          |
+| **deliveryFee** | Number or Null        |                          |
 
 **Delivery address**
 
