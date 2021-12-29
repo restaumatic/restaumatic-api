@@ -68,7 +68,7 @@ Combos are represented as separate products.
 | **timezone**             | TZLabel             | Time zone of an restaurant, e.g. `Europe/Warsaw`                                     |
 | **state**                | OrderState          | Current state of an order, enum: `WaitingForConfirmation, Completed, Cancelled`    |
 | **origin**               | OrderOrigin         | Origin of an order, `Online, Phone, Bar`, etc; new origins will be added without notice    |
-| **paymentMethod**        | PaymentMethod       | Enum: `Cash, Online, Card`                                                         |
+| **paymentMethod**        | PaymentMethod       | Enum: `Cash, Online, Card, Prepaid`                                                |
 | confirmation             | Confirmation or Null | Null when order state is `WaitingForConfirmation`                                    |
 | **customer**             | Customer            | Information about customer                                                           |
 | **fulfillmentMethod**    | FulfillmentMethod   |                                                                                      |
