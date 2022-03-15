@@ -36,28 +36,11 @@ Order may be accepted or cancelled with other channel and the webhook client sho
 - `productId` is unique for each specific variant (size) of a menu item.
 - In case of online payment we call webhooks after payment was successfully processed.
 
-**Half and half pizzas**
+**Split products**
 
-Half and half pizzas are encoded as ordinary items. However, they use fixed UUID for `productId` and `variant.id`. The latter may be used to obtain information on pizza size. The information about parts, i.e. base pizza name, product and variant ids and topping adjustments are encoded in `extra.parts` attribute of an item in similar fashion to regular pizzas. Half and half pizzas may be also disabled by the restaurant in the admin panel.
+Split products (e.g. half and half pizzas) are encoded as ordinary items. However, they use fixed UUID for `productId` and have no `variant.id`. The information about parts (variant, addons) are encoded in `extra.parts` attribute of an item in similar fashion to regular products. Ability to split selected may be enabled by the restaurant in the admin panel.
 
-Split pizza product UUID: `bb696623-ac72-5850-81bf-759b54e23b27`
-
-Variant id by Restaumatic size in Restaumatic system:
-1. `3909adee-2fd3-5af8-bd5f-03e33ed48b7d`
-1. `7bbf5ddc-a0b4-5d8e-9733-83640c3a394f`
-1. `e9d0b342-c380-52dc-ba53-8ada2c20f1fb`
-1. `517ccb0b-c4a9-5bcc-8e06-89861bb54ff7`
-1. `84383e8f-d602-55a6-842a-6feecd5b287d`
-
-**Split items for generic products**
-
-Split items are encoded as ordinary items. However, they use fixed UUID for `productId` and have no `variant.id`. The information about parts (variant, addons) are encoded in `extra.parts` attribute of an item in similar fashion to regular products. Ability to split selected may be enabled by the restaurant in the admin panel.
-
-Split product (new menu) UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
-
-**Combos**
-
-Combos are represented as separate products.
+Split product UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
 
 **Order (webhook payload)**
 
@@ -184,7 +167,9 @@ All fields are optional
 | removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
 | parts          | Array of PartExtra or Null | Parts of an item, applicable to half-and-half pizzas |
 
-**PartExtra (only half and half pizzas)**
+**PartExtra**
+
+Only present for split items. Represents information about the individual parts.
 
 | **Field**      | **Type**                  |                                                                                      |
 | -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
@@ -202,11 +187,8 @@ All fields are optional
 | ------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | **productId** | UUID      |                                                                                                                                        |
 | **name**      | String    | Addon name                                                                                                                             |
-| **addonType** | AddonType | Addon type. Addons may have different semantics:
+| **addonType** | AddonType | Addon type. Possible types:
 
-- `Side` – side dish (deprecated)
-- `Topping` – pizza ingredient (deprecated)
-- `PizzaPan` – type of pizza pan (deprecated)
 - `Modifier` – modifier item
 
 
@@ -271,7 +253,7 @@ In some cases one may require to map products from Restaumatic to products in th
 | **Field**     | **Type**                |                                                                                            |
 | ------------- | ----------------------- | ------------------------------------------------------------------------------------------ |
 | **productId** | UUID                    | Product id in Restaumatic                                                                  |
-| **kind**      | ProductKind             | Indicates type of product, Enum: Product, Modifier, Dish, Drink, Pizza, Freebie, Side, Topping, PizzaPan |
+| **kind**      | ProductKind             | Indicates type of product, Enum: Product, Modifier, Freebie |
 | group         | String or Null           | Optional group of products (e.g. dish group, product category, modifier name), for informational purpose |
 | **name**      | String                   | Product name                                                                               |
 | variants      | Array of Variant or Null | List of possible variants (see Variant type from webhook). Applicable to some products.   |
@@ -285,6 +267,10 @@ Production: `https://www.skubacz.pl/api/v1/integrations/menu?apiKey=API_KEY`
 See [example.json](example.json).
 
 # Changelog
+
+## March 2022
+
+* Removed support for old menu representation (product types: Dish, Drink, Pizza, Side, Topping, PizzaPan).
 
 ## July 2021
 
