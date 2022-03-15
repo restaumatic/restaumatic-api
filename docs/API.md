@@ -224,7 +224,7 @@ All fields are optional
 
 The confirmation data shall be sent to callback URL provided in webhook data as a POST request with `application/json` payload. Currently we use the following endpoints:
 
-Testing: `https://www.manca.ro/api/v1/integrations/orders/ORDER_ID?apiKey=API_KEY`
+Testing: `https://www.beta.manca.ro/api/v1/integrations/orders/ORDER_ID?apiKey=API_KEY`
 
 Production: `https://www.skubacz.pl/api/v1/integrations/orders/ORDER_ID?apiKey=API_KEY`
 
@@ -251,7 +251,7 @@ Order id has to be provided both in URL as well as in request body.
 
 We provide special endpoint for webhook debugging. It will present some diagnostic information about recent webhook calls. Note, as this is debugging API we may change and improve this from time to time without notice.
 
-Testing: `https://www.manca.ro/api/v1/integrations/log?apiKey=API_KEY`
+Testing: `https://www.beta.manca.ro/api/v1/integrations/log?apiKey=API_KEY`
 
 Production: `https://www.skubacz.pl/api/v1/integrations/log?apiKey=API_KEY`
 
@@ -260,7 +260,7 @@ Production: `https://www.skubacz.pl/api/v1/integrations/log?apiKey=API_KEY`
 
 If using webhooks is not suitable for your use case, we make polling endpoint available. It will return recent orders, including confirmed or rejected ones. Remember, orders may be cancelled either automatically by Restaumatic or by the user using other methods.
 
-Testing: `https://www.manca.ro/api/v1/integrations/orders?apiKey=API_KEY`
+Testing: `https://www.beta.manca.ro/api/v1/integrations/orders?apiKey=API_KEY`
 
 Production: `https://www.skubacz.pl/api/v1/integrations/orders?apiKey=API_KEY`
 
@@ -276,7 +276,7 @@ In some cases one may require to map products from Restaumatic to products in th
 | **name**      | String                   | Product name                                                                               |
 | variants      | Array of Variant or Null | List of possible variants (see Variant type from webhook). Applicable to some products.   |
 
-Testing: `https://www.manca.ro/api/v1/integrations/menu?apiKey=API_KEY`
+Testing: `https://www.beta.manca.ro/api/v1/integrations/menu?apiKey=API_KEY`
 
 Production: `https://www.skubacz.pl/api/v1/integrations/menu?apiKey=API_KEY`
 
