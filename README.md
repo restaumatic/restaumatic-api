@@ -14,7 +14,7 @@ Dokumentacja techniczna (w języku angielskim) znajduje się w dokumencie [docs/
 4. Dostawca POS implementuje integrację w oparciu o dokumentację techniczną.
 5. Po przeprowadzeniu testów uruchamiamy integrację dla restauracji.
 
-W razie pytań i wątpiwości prosimy o kontakt.
+W razie pytań i wątpliwości prosimy o kontakt.
 
 ## Materiały graficzne
 
