@@ -69,7 +69,8 @@ Split product UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
 | **Field**       | **Type**        |                                          |
 | --------------- | --------------- | ---------------------------------------- |
 | **confirmedAt** | DateTime        | When the order was confirmed             |
-| **status**      | Status          | Enum: `Accepted`, `Rejected`             |
+| confirmedAt     | DateTime        | When the order was invalidated           |
+| **status**      | Status          | Enum: `Accepted`, `Rejected`, `Abandoned |
 | deliveryTime    | DateTime or Null | Expected delivery time (when applicable) |
 | message         | String or Null   | Optional message for the customer.       |
 
@@ -228,6 +229,13 @@ Order id has to be provided both in URL as well as in request body.
       "comment": "We've run out of pizza dough."
     }
 
+**Abandon the order**
+
+    {
+      "orderId": "0241c2a3-ee54-4c43-bad0-89a2e446e2b4",
+      "status": "Abandoned",
+      "comment": "Delivery impossible because of broken bike."
+    }
 
 # Debugging webhooks
 
