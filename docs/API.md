@@ -69,7 +69,7 @@ Split product UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
 | **Field**       | **Type**        |                                          |
 | --------------- | --------------- | ---------------------------------------- |
 | **confirmedAt** | DateTime        | When the order was confirmed             |
-| confirmedAt     | DateTime        | When the order was invalidated           |
+| invalidatedAt   | DateTime        | When the order was invalidated           |
 | **status**      | Status          | Enum: `Accepted`, `Rejected`, `Abandoned` |
 | deliveryTime    | DateTime or Null | Expected delivery time (when applicable) |
 | message         | String or Null   | Optional message for the customer.       |
