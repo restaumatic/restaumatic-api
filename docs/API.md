@@ -204,11 +204,11 @@ Only present for split items. Represents information about the individual parts.
 
 **Deposit**
 
-| **Field**   | **Type**      |                                                                      |
-| ----------- | ------------- | -------------------------------------------------------------------- |
-| **kind**    | String        | Deposit kind (SingleUsePlasticBottle, MetalCan, MultiUseGlassBottle) |
-| **count**   | Int           | Quantity of deposits of a given kind                                 |
-| **value**   | Number        | Unit value of a deposit of a given kind                              |
+| **Field**   | **Type**      |                                                                           |
+| ----------- | ------------- | ------------------------------------------------------------------------- |
+| **name**    | String        | Deposit rate name (SingleUsePlasticBottle, MetalCan, MultiUseGlassBottle) |
+| **count**   | Int           | Quantity of deposits of a given kind                                      |
+| **value**   | Number        | Unit value of a deposit rate                                              |
 
 # Accepting & rejecting orders
 
