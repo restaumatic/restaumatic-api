@@ -44,25 +44,26 @@ Split product UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
 
 **Order (webhook payload)**
 
-| **Field**                | **Type**            |                                                                                      |
-| ------------------------ | ------------------- | ------------------------------------------------------------------------------------ |
-| **id**                   | UUID                | UUID of an order                                                                     |
-| **orderedAt**            | DateTime            | When the order was successfully placed & payment was complete                        |
-| **timezone**             | TZLabel             | Time zone of an restaurant, e.g. `Europe/Warsaw`                                     |
-| **state**                | OrderState          | Current state of an order, enum: `WaitingForConfirmation, Completed, Cancelled`    |
-| **origin**               | OrderOrigin         | Origin of an order, `Online, Phone, Bar`, etc; new origins will be added without notice    |
-| **paymentMethod**        | PaymentMethod       | Enum: `Cash, Online, Card, Prepaid`                                                |
-| confirmation             | Confirmation or Null | Null when order state is `WaitingForConfirmation`                                    |
-| **customer**             | Customer            | Information about customer                                                           |
-| **fulfillmentMethod**    | FulfillmentMethod   |                                                                                      |
-| requestedFulfillmentTime | DateTime or Null     | Null for deliver ASAP orders, otherwise requested time for "deliver at XX:YY" orders |
-| **total**                | Number              | Order total incl. discounts and delivery                                             |
-| **currency**             | String              | ISO 4217, e.g. `PLN`, `EUR`, etc.                                                    |
-| **items**                | Array of Item       |                                                                                      |
-| **discounts**            | Array of Discount   | Discounts that were applied to whole order (not to specific items)                   |
-| userNote                 | String or Null       | Note that user provided during checkout                                              |
-| **callback**             | String              | Callback URL to order confirmation endpoint.                                         |
-| vatId                    | String or Null      | Vat ID if user has requested invoice                                                 |
+| **Field**                | **Type**             |                                                                                          |
+| ------------------------ | -------------------- | ---------------------------------------------------------------------------------------- |
+| **id**                   | UUID                 | UUID of an order                                                                         |
+| **orderedAt**            | DateTime             | When the order was successfully placed & payment was complete                            |
+| **timezone**             | TZLabel              | Time zone of an restaurant, e.g. `Europe/Warsaw`                                         |
+| **state**                | OrderState           | Current state of an order, enum: `WaitingForConfirmation, Completed, Cancelled`          |
+| **origin**               | OrderOrigin          | Origin of an order, `Online, Phone, Bar`, etc; new origins will be added without notice  |
+| **paymentMethod**        | PaymentMethod        | Enum: `Cash, Online, Card, Prepaid`                                                      |
+| confirmation             | Confirmation or Null | Null when order state is `WaitingForConfirmation`                                        |
+| **customer**             | Customer             | Information about customer                                                               |
+| **fulfillmentMethod**    | FulfillmentMethod    |                                                                                          |
+| requestedFulfillmentTime | DateTime or Null     | Null for deliver ASAP orders, otherwise requested time for "deliver at XX:YY" orders     |
+| **total**                | Number               | Order total incl. discounts and delivery                                                 |
+| **currency**             | String               | ISO 4217, e.g. `PLN`, `EUR`, etc.                                                        |
+| **items**                | Array of Item        |                                                                                          |
+| **discounts**            | Array of Discount    | Discounts that were applied to whole order (not to specific items)                       |
+| **deposits**             | Array of Deposit     | Packaging deposits for the products in the order. Their value is *not* included in total |
+| userNote                 | String or Null       | Note that user provided during checkout                                                  |
+| **callback**             | String               | Callback URL to order confirmation endpoint.                                             |
+| vatId                    | String or Null       | Vat ID if user has requested invoice                                                     |
 
 **Confirmation**
 
@@ -114,15 +115,15 @@ There are four variants that should be distinguished by `tag` attribute (possibl
 
 **Delivery address**
 
-| **Field**        | **Type**      |                   |
-| ---------------- | ------------- | ----------------- |
-| **street**       | String        |                   |
-| **streetNumber** | String        |                   |
-| apartmentNumber  | String or Null |                   |
-| floor            | String or Null |                   |
-| postCode         | String or Null |                   |
-| **city**         | String        |                   |
-| **country**      | String        | ISO3166-1 Alpha 2 |
+| **Field**        | **Type**            |                   |
+| ---------------- | ------------------- | ----------------- |
+| **street**       | String              |                   |
+| **streetNumber** | String              |                   |
+| apartmentNumber  | String or Null      |                   |
+| floor            | String or Null      |                   |
+| postCode         | String or Null      |                   |
+| **city**         | String              |                   |
+| **country**      | String              | ISO3166-1 Alpha 2 |
 | coordinates      | Coordinates or Null |                   |
 
 **Coordinates**
@@ -160,8 +161,8 @@ There are four variants that should be distinguished by `tag` attribute (possibl
 **ItemExtra**
 All fields are optional
 
-| **Field**      | **Type**                  |                                                                                      |
-| -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
+| **Field**      | **Type**                   |                                                                                      |
+| -------------- | -------------------------- | ------------------------------------------------------------------------------------ |
 | size           | String or Null             | Product size name (when applicable)                                                  |
 | includedAddons | Array of AddonInfo or Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
 | addedAddons    | Array of AddonInfo or Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
@@ -172,11 +173,11 @@ All fields are optional
 
 Only present for split items. Represents information about the individual parts.
 
-| **Field**      | **Type**                  |                                                                                      |
-| -------------- | ------------------------- | ------------------------------------------------------------------------------------ |
-| **productId** | UUID              | UUID of a menu item                                                                         |
-| **name**      | String            | Primary product name                                                                         |
-| variant       | Variant or Null    | Variant (e.g. size) of an item                                                                  |
+| **Field**      | **Type**                   |                                                                                      |
+| -------------- | -------------------------- | ------------------------------------------------------------------------------------ |
+| **productId**  | UUID                       | UUID of a menu item                                                                  |
+| **name**       | String                     | Primary product name                                                                 |
+| variant        | Variant or Null            | Variant (e.g. size) of an item                                                       |
 | includedAddons | Array of AddonInfo or Null | Addons that are included by default (e.g. toppings for non-custom pizza)             |
 | addedAddons    | Array of AddonInfo or Null | Addons that were added by the user (e.g. sides or extra pizza toppings)              |
 | removedAddons  | Array of AddonInfo or Null | Addons that were removed by the user (e.g. pizza toppings that customer didn't like) |
@@ -195,13 +196,19 @@ Only present for split items. Represents information about the individual parts.
 
 **Discount**
 
-| **Field**   | **Type**      |                                 |
-| ----------- | ------------- | ------------------------------- |
-| **name**    | String        | Primary discount/promotion name |
+| **Field**   | **Type**       |                                 |
+| ----------- | -------------- | ------------------------------- |
+| **name**    | String         | Primary discount/promotion name |
 | description | String or Null | Additional information          |
-| **value**   | Number        | Discount value                  |
+| **value**   | Number         | Discount value                  |
 
+**Deposit**
 
+| **Field**   | **Type**      |                                                                           |
+| ----------- | ------------- | ------------------------------------------------------------------------- |
+| **name**    | String        | Deposit rate name (SingleUsePlasticBottle, MetalCan, MultiUseGlassBottle) |
+| **count**   | Int           | Quantity of deposits of a given kind                                      |
+| **value**   | Number        | Unit value of a deposit rate                                              |
 
 # Accepting & rejecting orders
 
