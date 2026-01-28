@@ -51,7 +51,7 @@ Split product UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
 | **timezone**             | TZLabel              | Time zone of an restaurant, e.g. `Europe/Warsaw`                                         |
 | **state**                | OrderState           | Current state of an order, enum: `WaitingForConfirmation, Completed, Cancelled`          |
 | **origin**               | OrderOrigin          | Origin of an order, `Online, Phone, Bar`, etc; new origins will be added without notice  |
-| **paymentMethod**        | PaymentMethod        | Enum: `Cash, Online, Card, Prepaid`                                                      |
+| **paymentMethod**        | PaymentMethod        | Payment method for the remaining balance. Enum: `Cash, Online, Card, Prepaid`  |
 | confirmation             | Confirmation or Null | Null when order state is `WaitingForConfirmation`                                        |
 | **customer**             | Customer             | Information about customer                                                               |
 | **fulfillmentMethod**    | FulfillmentMethod    |                                                                                          |
@@ -61,6 +61,8 @@ Split product UUID: `beb19f5e-6c14-4a75-b1fd-356ebf0a5bec`
 | **items**                | Array of Item        |                                                                                          |
 | **discounts**            | Array of Discount    | Discounts that were applied to whole order (not to specific items)                       |
 | **deposits**             | Array of Deposit     | Packaging deposits for the products in the order. Their value is *not* included in total |
+| **payments**             | Array of Payment     | Payments that have already been made for this order (e.g., online prepayments)           |
+| **customerToPay**        | Number               | Amount the customer still needs to pay (total + deposits - payments)                     |
 | userNote                 | String or Null       | Note that user provided during checkout                                                  |
 | **callback**             | String               | Callback URL to order confirmation endpoint.                                             |
 | vatId                    | String or Null       | Vat ID if user has requested invoice                                                     |
@@ -210,6 +212,13 @@ Only present for split items. Represents information about the individual parts.
 | **count**   | Int           | Quantity of deposits of a given kind                                      |
 | **value**   | Number        | Unit value of a deposit rate                                              |
 
+**Payment**
+
+| **Field**   | **Type**       |                                                               |
+| ----------- | -------------- | ------------------------------------------------------------- |
+| **amount**  | Number         | Payment amount                                                |
+| **source**  | PaymentSource  | Source of the payment. Enum: `Card`, `Online`                 |
+
 # Accepting & rejecting orders
 
 The confirmation data shall be sent to callback URL provided in webhook data as a POST request with `application/json` payload. Currently we use the following endpoints:
@@ -282,6 +291,10 @@ Production: `https://www.skubacz.pl/api/v1/integrations/menu?apiKey=API_KEY`
 See [example.json](example.json).
 
 # Changelog
+
+## January 2026
+
+* Added `payments` and `customerToPay` fields to the order. These support orders where partial payments have already been made. The `customerToPay` field indicates the remaining amount to be collected.
 
 ## March 2022
 
